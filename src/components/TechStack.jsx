@@ -20,7 +20,7 @@ const TechStack = () => {
     { name: 'Git', rating: 3, use: '基本的な操作は可能です.', icon: <GitIcon /> },
     { name: 'Docker', rating: 3, use: '基本的な操作は可能です.', icon: <DockerIcon /> },
     { name: 'Linux', rating: 3, use: '基本的なセットアップ(web, DNS, mail)経験があります.', icon: <LinuxIcon /> },
-    { name: 'ネットワーク', rating: 3, use: 'VPNの構築, Zabbixを用いた監視, k8sの構築', icon: <NetworkIcon /> },
+    { name: 'ネットワーク', rating: 3, use: 'VPNの構築, 現在IaCの学習中です.', icon: <NetworkIcon /> },
     { name: 'ChatGPT', rating: 5, use: '日常的に愛用しています', icon: <HandymanIcon /> },
   ];
 
