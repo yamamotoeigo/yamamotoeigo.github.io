@@ -1,8 +1,8 @@
 {
+  "homepage": "https://yamamotoeigo.github.io/yamamotoeigo.github.io/",
   "name": "portfolio-site",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://yamamotoeigo.github.io/yamamotoeigo.github.io/",
   "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
@@ -30,10 +30,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "rm": "rm -rf docs",
-    "mv": "mv build docs",
-    "git": "git add . && git commit && git push origin master",
-    "deploy": "npm run rm && npm run build && npm run mv && npm run git"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
