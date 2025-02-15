@@ -74,12 +74,12 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
-        run: ${{ steps.detect-package-manager.oenv:
+        run: ${{ steps.detect-package-manager.outputs.runner }} next build
         env:
           NEXT_PUBLIC_MICROCMS_SERVICE_DOMAIN: ${{ secrets.NEXT_PUBLIC_MICROCMS_SERVICE_DOMAIN }}
           NEXT_PUBLIC_MICROCMS_API_KEY: ${{ secrets.NEXT_PUBLIC_MICROCMS_API_KEY }}
           # serviceDomain: ${{ secrets.NEXT_PUBLIC_MICROCMS_SERVICE_DOMAIN }}
-          # apiKey: ${{ secrets.NEXT_PUBLIC_MICROCMS_API_KEY }}utputs.runner }} next build
+          # apiKey: ${{ secrets.NEXT_PUBLIC_MICROCMS_API_KEY }}
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
