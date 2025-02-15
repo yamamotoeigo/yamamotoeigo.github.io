@@ -2,15 +2,22 @@
 
 import { useEffect, useState } from 'react';
 
+type BlogPost = {
+  id: string; // Assuming `id` is a string, update it if it's a number
+  emoji: string;
+  title: string;
+  published_at: string;
+  body_letters_count: number;
+  path: string;
+};
+
 export default function BlogSection() {
-  const [blogPosts, setBlogPosts] = useState([]);
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]); // ✅ Explicit type
 
   useEffect(() => {
-    // 自身の API ルート（CORS 対策済み）からデータを取得
     fetch('/api/zenn')
       .then((response) => response.json())
       .then((data) => {
-        // API レスポンスは { articles: [...] } の形式
         setBlogPosts(data.articles);
       })
       .catch((error) => {
@@ -25,7 +32,6 @@ export default function BlogSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogPosts.map((post) => (
             <div key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden">
-              {/* サムネイルとして emoji を表示 */}
               <div className="flex items-center justify-center w-full h-48 bg-[#CFE4FE]">
                 <span className="text-6xl">{post.emoji}</span>
               </div>
@@ -37,7 +43,6 @@ export default function BlogSection() {
                 <p className="text-gray-600 mb-4">
                   {post.body_letters_count} 文字
                 </p>
-                {/* 外部リンク: "Read More" をクリックすると Zenn の記事ページに新しいタブで遷移 */}
                 <a
                   href={`https://zenn.dev${post.path}`}
                   target="_blank"

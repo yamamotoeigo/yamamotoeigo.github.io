@@ -5,10 +5,31 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { client } from '@/libs/client'; // microCMS用のクライアントインスタンス
 
+// プロジェクトの型定義（必要に応じてフィールドを拡張してください）
+interface Project {
+  id: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  revisedAt: string;
+  title: string;
+  abstract: string;
+  stacks: string;
+  link?: string;
+  content: string;
+  date: string;
+}
+
+// ProjectModal の props 型
+interface ProjectModalProps {
+  project: Project;
+  onClose: () => void;
+}
+
 // HTML文字列からすべての画像URLを抽出するヘルパー関数
-function extractImageUrls(content) {
+function extractImageUrls(content: string): string[] {
   const regex = /<img\s+[^>]*src="([^"]+)"[^>]*>/gi;
-  const urls = [];
+  const urls: string[] = [];
   let match;
   while ((match = regex.exec(content)) !== null) {
     urls.push(match[1]);
@@ -16,10 +37,10 @@ function extractImageUrls(content) {
   return urls;
 }
 
-function ProjectModal({ project, onClose }) {
+function ProjectModal({ project, onClose }: ProjectModalProps) {
   const imageUrls = extractImageUrls(project.content);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const modalRef = useRef(null);
+  const modalRef = useRef<HTMLDivElement>(null);
 
   // 本文から画像タグを除去し、リンクに target, rel, クラスを追加
   const processedContent = project.content
@@ -34,13 +55,15 @@ function ProjectModal({ project, onClose }) {
     setCurrentIndex((prev) => (prev + 1) % imageUrls.length);
   };
 
-  // 簡易フォーカストラップ（例）
+  // 簡易フォーカストラップ
   useEffect(() => {
-    const focusableElements = modalRef.current.querySelectorAll(
-      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-    );
-    const firstElement = focusableElements[0];
-    firstElement?.focus();
+    if (modalRef.current) {
+      const focusableElements = modalRef.current.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+      const firstElement = focusableElements[0] as HTMLElement | null;
+      firstElement?.focus();
+    }
   }, []);
 
   return (
@@ -167,8 +190,8 @@ function ProjectModal({ project, onClose }) {
 }
 
 export default function ProjectsSection() {
-  const [projects, setProjects] = useState([]);
-  const [selectedProject, setSelectedProject] = useState(null);
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   useEffect(() => {
     client

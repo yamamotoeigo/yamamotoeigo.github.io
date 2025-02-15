@@ -42,7 +42,7 @@ export default function Header() {
     <header className={`fixed w-full z-50 transition-all duration-300 ${isSticky ? 'bg-white shadow-md' : 'bg-transparent'}`}>
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link href="/" className="text-2xl font-bold text-gray-600">
-          Yamamoto's Portfolio
+          Yamamoto&apos;s Portfolio
         </Link>
         <div className="md:hidden">
           <button onClick={toggleMenu} className="text-gray-600 focus:outline-none">

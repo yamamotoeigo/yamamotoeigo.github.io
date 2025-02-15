@@ -67,7 +67,7 @@ export default function HeroSection() {
             Welcome to My Portfolio
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-gray-300">
-            I'm a baby engineer, still learning the ropes!
+            I&apos;m a baby engineer, still learning the ropes!
           </p>
           <motion.button
             whileHover={{ scale: 1.05 }}

@@ -1,6 +1,6 @@
 // app/api/zenn/route.js
 
-export async function GET(request) {
+export async function GET() {
     try {
       const response = await fetch('https://zenn.dev/api/articles?username=yama_moto');
   
