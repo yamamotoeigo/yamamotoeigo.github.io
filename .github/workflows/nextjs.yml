@@ -75,8 +75,10 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
         env:
-            serviceDomain: ${{ secrets.NEXT_PUBLIC_MICROCMS_SERVICE_DOMAIN }}
-            apiKey: ${{ secrets.NEXT_PUBLIC_MICROCMS_API_KEY }}
+            NEXT_PUBLIC_MICROCMS_SERVICE_DOMAIN: ${{ secrets.NEXT_PUBLIC_MICROCMS_SERVICE_DOMAIN }}
+            NEXT_PUBLIC_MICROCMS_API_KEY: ${{ secrets.NEXT_PUBLIC_MICROCMS_API_KEY }}
+            service_domain: ${{ secrets.NEXT_PUBLIC_MICROCMS_SERVICE_DOMAIN }}
+            api_key: ${{ secrets.NEXT_PUBLIC_MICROCMS_API_KEY }}
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
