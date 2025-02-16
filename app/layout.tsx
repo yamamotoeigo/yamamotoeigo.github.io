@@ -5,8 +5,11 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Developer Portfolio',
+  title: "Yamamoto's Portfolio",
   description: 'A showcase of my work and skills as a developer',
+  icons: {
+    icon: "/favicon.ico", // Favicon を設定
+  },
 }
 
 export default function RootLayout({
