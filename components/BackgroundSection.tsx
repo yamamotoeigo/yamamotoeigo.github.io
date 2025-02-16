@@ -33,7 +33,7 @@ const backgroundData: BackgroundItem[] = [
 
 export default function BackgroundSection() {
   return (
-    <section id="background" className="pt-20 bg-gray-50">
+    <section id="background" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold mb-8 text-center">My Background</h2>
         <div className="relative">
