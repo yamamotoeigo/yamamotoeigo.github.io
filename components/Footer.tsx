@@ -10,16 +10,16 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p>&copy; 2025 Yamamoto&apos;s Portfolio. All rights reserved.</p>
           <div className="flex space-x-4 mt-4 md:mt-0">
-            <a href="https://github.com/yamamotoeigo" className="hover:text-blue-400 transition-colors">
+            <a href="https://github.com/yamamotoeigo" className="hover:text-blue-400 transition-colors" target="_blank">
               <FaGithub size={20} />
             </a>
-            <a href="https://x.com/YamamotoD3v" className="hover:text-blue-400 transition-colors">
+            <a href="https://x.com/YamamotoD3v" className="hover:text-blue-400 transition-colors" target="_blank">
               <FaXTwitter size={20} />
             </a>
-            <a href="https://zenn.dev/yama_moto" className="hover:text-blue-400 transition-colors">
+            <a href="https://zenn.dev/yama_moto" className="hover:text-blue-400 transition-colors" target="_blank">
               <SiZenn size={20} />
             </a>
-            <a href="https://speakerdeck.com/yamamotoeigo" className="hover:text-blue-400 transition-colors">
+            <a href="https://speakerdeck.com/yamamotoeigo" className="hover:text-blue-400 transition-colors" target="_blank">
               <FaSpeakerDeck size={20} />
             </a>
           </div>
